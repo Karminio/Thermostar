@@ -1,0 +1,30 @@
+html
+    head
+        title= "Thermostat"
+        script(src='/client.js')
+        script(src='/socket.io/socket.io.js')
+        script(src='/jquery-3.1.1.min.js')
+        script(src='/jquery.tempgauge.js')
+
+    body#pageBody(style='background: #b7b7b7')
+        br
+        br
+        #content(style='width: 200px; height: 170px; margin: 0 0 20px 0; border: solid 1px #999; overflow-y: scroll;')
+        #controls
+            input#set(type='button', value='Set temps')
+            input#getTemps(type='button', value='Get temps')
+            input#check(type='button', value='check')
+            input#stats(type='button', value='stats', onclick='window.location="/stats"')
+            input#manualRun(type='button', value='run 15 min')
+            input#pause(type='button', value='pause', onclick='window.location="/pause"')
+            br
+            - for (var i=0; i<24; i++) {
+                span=i
+                input(id='rTemp'+i, type='range', value='8', min='8', max='22', onchange='updateLabelValue('+i+')')
+                span(id='tempLabel'+i, style='width:20, margin-left:10,margin-right:10') 8
+                input(id='rbTemp'+i+'_0', name='rb'+i, type='radio' checked)
+                | C
+                input(id='rbTemp'+i+'_1', name='rb'+i, type='radio')
+                | S
+                br
+            - }
