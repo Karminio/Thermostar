@@ -1,0 +1,32 @@
+html
+    head
+        title= "Thermostat"
+        script(src='/jquery-3.1.1.min.js')        
+        script(src='/clipboard.min.js')        
+        script(src='/statsClient.js')
+        script(src='/socket.io/socket.io.js')
+        script(src='/jquery.tempgauge.js')
+
+    body#pageBody
+        br
+        br
+        #content(style='width: 400px; height: 300px; margin: 0 0 20px 0; border: solid 1px #999; overflow-y: scroll;')
+        br
+        | start
+        br
+        input#rangeStart(type='datetime-local')
+        br
+        | end
+        br
+        input#rangeEnd(type='datetime-local')
+        br
+        input#calculate(type='button', value='calculate', onclick='')
+        br
+        br
+        input#back(type='button', value='back', onclick='window.location="/"')
+        br
+        br
+        input#log(type='button', value='log', onclick='')        
+        input#copy(type='button', class='btn' value='copy', data-clipboard-action='copy' data-clipboard-target='#logArea')        
+        #logArea(style='width: 400px; height: 500px; margin: 0 0 20px 0; border: solid 1px #999; overflow-y: scroll;')
+        

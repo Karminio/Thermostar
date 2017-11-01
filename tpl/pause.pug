@@ -1,0 +1,12 @@
+html
+    head
+        title= "Thermostat - Paused"
+        script(src='/socket.io/socket.io.js')
+    body#pageBody
+        br
+        br
+        | Riscaldamento in pausa
+        br
+        br
+        input#resume(type='button', value='resume', onclick='window.location="/resume"')
+        
